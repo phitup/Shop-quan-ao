@@ -1,0 +1,157 @@
+﻿@model Project.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/quantri/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    dt {
+        padding-top: 10px;
+    }
+
+    dd {
+        padding-top: 10px;
+    }
+    p {
+        height: 100px;
+        margin: 20px;
+        display: inline;
+        
+    }
+    .sua {
+        height: 30px;
+        width: 40px;
+        text-align: center;
+        background-color:deeppink;
+        display: inline;
+        padding: 10px;
+        position: relative;
+        top: -20px;
+    }
+    .sua a{
+        padding-top:5px;
+        color:white;
+    }
+
+    .sua:hover{
+        background-color:lightgray;
+        color:black;
+    }
+
+    .quayve {
+        height: 30px;
+        width: 40px;
+        text-align: center;
+        background-color: deeppink;
+        display: inline;
+        padding: 10px;
+        position: relative;
+        top: -20px;
+    }
+    .quayve a {
+        padding-top: 5px;
+        color: white;
+    }
+        .quayve:hover {
+            background-color: lightgray;
+            color: black;
+        }
+    .abc {
+        display: inline;
+        position: relative;
+        top: -18px;
+        font-size:30px;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Chi Tiết Tin Tức
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.img)
+                    </dt>
+
+                    <dd>
+                        <img src="~/Content/upload/img/news/@Model.img" style="width:20% ; height:auto" />
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.detail)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.detail)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.meta)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.meta)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Chế Độ")
+                    </dt>
+
+                    <dd>
+                        @(Model.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.order)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.order)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.datebegin)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.datebegin)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                <div class="sua">
+                    @Html.ActionLink("Sửa", "Edit", new { id = Model.id })
+                </div> 
+                <div class="abc">|
+                    </div>
+                <div class="quayve">
+                    @Html.ActionLink("Quay Lại", "Index")
+                </div>
+                
+            </p>
+            
+            
+        </div>
+    </div>
+</div>

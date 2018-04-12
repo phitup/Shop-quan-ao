@@ -1,0 +1,23 @@
+﻿@model Project.Models.product
+
+@{
+    ViewBag.Title = "View";
+}
+
+    <div class="col-md-4 top_grid1-box1 product1">
+        
+            <div class="grid_1">
+                <div class="b-link-stroke b-animate-go thickbox">
+                    <img src="~/images/@Model.img" class="img-responsive" alt="Nghệ Thuật" />
+                </div>
+                <div class="grid_2">
+                    <p>@Model.name</p>
+                    <ul class="grid_2-bottom">
+                        <li class="grid_2-left"><p>@Model.price<small> VND</small></p></li>
+                        <li class="grid_2-right"><div class="btn btn-primary btn-normal btn-inline" target="_self" title="BUY">@Html.ActionLink("BUY", "ProductDetail", "Home", new { productID = @Model.id }, null)</div></li>
+                        <div class="clearfix"></div>
+                    </ul>
+                </div>
+            </div>
+        
+    </div>

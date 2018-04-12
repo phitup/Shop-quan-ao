@@ -1,0 +1,17 @@
+﻿@model List<Project.Models.category>
+@{
+    ViewBag.Title = "Menu";
+}
+
+@foreach (var category in Model)
+{
+    
+        <ul class="menu1">
+            <li>
+                <a href="#">
+                    @Html.ActionLink(category.name, "Category", "Home", new { categoryID = @category.id }, null)
+                </a>
+            </li>
+        </ul>
+}
+
