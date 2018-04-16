@@ -48,8 +48,18 @@ namespace Project.Controllers
                
             }            
             ViewBag.View = Chuoi;*/
-            List<product> pList = db.products.ToList(); 
+
+            List<product> pList = db.products.OrderByDescending(x => x.id).ThenByDescending(id => id.id).ToList();
             return View(pList);
+        }
+
+        public ActionResult getHome()
+        {
+            var v = from t in db.News
+                    where t.hide == true
+                    orderby t.order ascending
+                    select t;
+            return PartialView(v.ToList());
         }
 
         public ActionResult About()
@@ -89,6 +99,7 @@ namespace Project.Controllers
             return View(cList);
         }
 
+
         public ActionResult ProductDetail(long productID)
         {
             //var category = _db.Menus.Where(x => x.Id == 3).FirstOrDefault();
@@ -101,6 +112,16 @@ namespace Project.Controllers
             List<category> cList = db.categories.ToList();
             return PartialView("Menu", cList);
         }
+
+        public ActionResult TopMenu()
+        {
+            var v = from t in db.menus
+                    where t.hide == true
+                    select t;
+            return PartialView(v.ToList());
+        }
+
+
 
         public ActionResult Wishlist()
         {

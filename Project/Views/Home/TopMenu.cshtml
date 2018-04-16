@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Project.Models.menu>
+
+@{ 
+    ViewBag.Title = "TopMenu";
+}
+
+@foreach (var menu in Model)
+{
+    var Url = menu.meta;
+    <ul class="nav" style="display:inline-block;">
+      
+          <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")" style="display:inline-block;">
+              <a href="@Url">
+                  @menu.name
+              </a>
+          </li>
+    </ul>
+}
+
+@*(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")*@

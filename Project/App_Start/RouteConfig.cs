@@ -12,7 +12,19 @@ namespace Project
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+            routes.MapRoute(
+                name: "Category",
+                url: "lua-chon/{meta}-{categoryID}",
+                defaults: new { controller = "Home", action = "Category", id = UrlParameter.Optional },
+                namespaces: new[] { "Project.Controllers" }
+            );
+            routes.MapRoute(
+                name: "ProductDetail",
+                url: "san-pham/{meta}-{productID}",
+                defaults: new { controller = "Home", action = "ProductDetail", id = UrlParameter.Optional },
+                namespaces: new[] { "Project.Controllers" }
+            );
+       
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

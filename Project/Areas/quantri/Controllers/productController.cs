@@ -51,6 +51,7 @@ namespace Project.Areas.quantri.Controllers
         [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "id,name,price,img,description,meta,size,color,hdie,order,datebegin,categoryid")] product product,HttpPostedFileBase img)
         {
+            ViewBag.GenreId = new SelectList(db.categories, "id", "name");
             var path = "";
             var filename = "";
             if (ModelState.IsValid)
@@ -121,7 +122,16 @@ namespace Project.Areas.quantri.Controllers
                 temp.color = product.color;
                 temp.datebegin = product.datebegin;
                 temp.categoryid = product.categoryid;
-                db.Entry(product).State = EntityState.Modified;
+                try
+                {
+                    db.Entry(product).State = EntityState.Modified;
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+             
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

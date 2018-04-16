@@ -5,11 +5,15 @@
 
 @foreach (var category in Model)
 {
-    
+
+    var Url = "/lua-chon/" + category.meta + "-" + category.id;
         <ul class="menu1">
             <li>
                 <a href="#">
-                    @Html.ActionLink(category.name, "Category", "Home", new { categoryID = @category.id }, null)
+                    @*Html.ActionLink(category.name, "Category", "Home", new { categoryID = @category.id }, null)*@
+                    <!--<a href="/Home/Category?categoryID=1">Quần áo Nam</a>-->
+                     
+                    <a href="@Url">@category.name</a>
                 </a>
             </li>
         </ul>

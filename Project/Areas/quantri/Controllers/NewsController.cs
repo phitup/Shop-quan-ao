@@ -117,7 +117,14 @@ namespace Project.Areas.quantri.Controllers
                 temp.meta = Functions.ConvertToUnSign(news.meta);
                 temp.hide = news.hide;
                 temp.order = news.order;
-                db.Entry(news).State = EntityState.Modified;
+                try
+                {
+                    db.Entry(news).State = EntityState.Modified;
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

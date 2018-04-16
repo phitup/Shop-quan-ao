@@ -45,12 +45,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
                 <a class="toggleMenu" href="#">Menu</a>
                 <ul class="nav">
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("About", "About", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Careers" ? "active" : "")">@Html.ActionLink("Careers", "Careers", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "404" ? "active" : "")">@Html.ActionLink("Company Profile", "404", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">@Html.ActionLink("Company Registration", "Register", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("Giới Thiệu", "About", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Careers" ? "active" : "")">@Html.ActionLink("Khách Hàng", "Careers", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("Liên Hệ", "Contact", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">@Html.ActionLink("Đăng Ký", "Register", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Wishlist" ? "active" : "")">@Html.ActionLink("Wish List", "Wishlist", "Home")</li>
                 </ul>
                 <script type="text/javascript" src="~/js/nav.js"></script>

@@ -168,8 +168,12 @@
     <Compile Include="Areas\quantri\Controllers\NewsController.cs" />
     <Compile Include="Areas\quantri\Controllers\productController.cs" />
     <Compile Include="Areas\quantri\quantriAreaRegistration.cs" />
+    <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\GlobalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1613,6 +1617,7 @@
     <Content Include="images\bo.jpg" />
     <Content Include="images\compare.png" />
     <Content Include="images\delivery.jpg" />
+    <Content Include="images\do-bo-2.jpg" />
     <Content Include="images\footer_bg.jpg" />
     <Content Include="images\f_menu.png" />
     <Content Include="images\img-sprite.png" />
@@ -1824,19 +1829,17 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\GioiThieu\Index.cshtml" />
     <None Include="Views\Global\getImage.cshtml" />
     <Content Include="Views\Global\getNews.cshtml" />
     <None Include="Views\Home\404.cshtml" />
-    <None Include="Views\Home\About.cshtml" />
-    <None Include="Views\Home\Careers.cshtml" />
     <Content Include="Views\Home\Category.cshtml" />
-    <None Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\getProduct.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\ProductDetail.cshtml" />
     <None Include="Views\Home\Register.cshtml" />
-    <None Include="Views\Home\Single.cshtml" />
+    <Content Include="Views\Home\TopMenu.cshtml" />
     <None Include="Views\Home\Wishlist.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1851,6 +1854,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
+    <Content Include="Views\TinTuc\getTinTuc.cshtml" />
+    <Content Include="Views\KhachHang\Index.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

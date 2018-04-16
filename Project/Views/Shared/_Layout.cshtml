@@ -72,9 +72,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <a href=""><li>@Html.ActionLink("Join", "Login", "Home")</li></a>
                     <!-- Sign IN -->
-                    
+
                     <a href=""><li>@Html.ActionLink("Sign In", "Register", "Home")</li></a>
-                    
+
                     <a href="#"><li><span class="m_1">Shopping Bag</span>&nbsp;&nbsp;(0) &nbsp;<img src="~/images/bag.png" alt="" /></li></a>
                     <div class="clearfix"> </div>
                 </ul>
@@ -85,20 +85,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- start h_menu4 -->
             <div class="container">
                 <a class="toggleMenu" href="#">Menu</a>
-                <ul class="nav">
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("About", "About", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Careers" ? "active" : "")">@Html.ActionLink("Careers", "Careers", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "404" ? "active" : "")">@Html.ActionLink("Company Profile", "404", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Register" ? "active" : "")">@Html.ActionLink("Company Registration", "Register", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Wishlist" ? "active" : "")">@Html.ActionLink("Wish List", "Wishlist", "Home")</li>
-                </ul>
+                    @{ Html.RenderAction("TopMenu" , "Home");}
                 <script type="text/javascript" src="~/js/nav.js"></script>
             </div><!-- end h_menu4 -->
         </div>
     </div>
-        @RenderBody()
+    @RenderBody()
     <div class="footer_bg">
     </div>
     <div class="footer">
@@ -148,3 +140,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"> </div>
         </div>
     </div>
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=1542696375839710&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+</body></html>
