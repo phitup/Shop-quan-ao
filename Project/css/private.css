@@ -31,3 +31,21 @@
 .labelTop {
     background-color:crimson;
 }
+
+.container-private {
+    width:1000px;
+    height:1000px;
+    background-color:#df1f26;
+}
+
+.left-images {
+    width:30%;
+    height:40%;
+    border:1px solid #b6ff00;
+}
+
+.right-Content {
+    width:70%;
+    height:100%;
+    border:1px solid #00ff90;
+}

@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    if(Session["userid"] == null)
+    {
+        Response.Redirect("~/quantri/Home/Login");
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -198,6 +205,13 @@
     <script src="~/Areas/quantri/Content/data/morris-data.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="~/Areas/quantri/Content/js/sb-admin-2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#dataTables-example").DataTable({
+                responsive: true
+            });
+        });
+    </script>
     @RenderSection("_Header", false);
     @RenderSection("_Footer", false);
 </body>

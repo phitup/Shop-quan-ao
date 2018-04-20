@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Project.Models.menu>
 
-@{ 
+@{
     ViewBag.Title = "TopMenu";
 }
 
@@ -8,12 +8,12 @@
 {
     var Url = menu.meta;
     <ul class="nav" style="display:inline-block;">
-      
-          <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")" style="display:inline-block;">
-              <a href="@Url">
-                  @menu.name
-              </a>
-          </li>
+
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")" style="display:inline-block;">
+            <a href="@Url">
+                @menu.name
+            </a>
+        </li>
     </ul>
 }
 

@@ -48,7 +48,6 @@ namespace Project.Controllers
                
             }            
             ViewBag.View = Chuoi;*/
-
             List<product> pList = db.products.OrderByDescending(x => x.id).ThenByDescending(id => id.id).ToList();
             return View(pList);
         }
@@ -60,6 +59,16 @@ namespace Project.Controllers
                     orderby t.order ascending
                     select t;
             return PartialView(v.ToList());
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
         }
 
         public ActionResult About()
@@ -77,16 +86,6 @@ namespace Project.Controllers
             return View();
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
         public ActionResult Single()
         {
             return View();
@@ -100,15 +99,22 @@ namespace Project.Controllers
         }
 
 
-        public ActionResult ProductDetail(long productID)
+        public ActionResult ProductDetail(string productID)
         {
             //var category = _db.Menus.Where(x => x.Id == 3).FirstOrDefault();
-            product product = db.products.Where(x => x.id == productID).SingleOrDefault();
+            product product = db.products.Where(x => x.meta == productID).SingleOrDefault();
             return View(product);
+        }
+
+        public ActionResult NewsDetail(string NewsID)
+        {
+            News news = db.News.Where(x => x.meta == NewsID).SingleOrDefault();
+            return View(news);
         }
 
         public ActionResult Menu()
         {
+            
             List<category> cList = db.categories.ToList();
             return PartialView("Menu", cList);
         }

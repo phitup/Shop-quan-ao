@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -15,11 +16,29 @@ namespace Project.Areas.quantri.Controllers
     public class productController : Controller
     {
         private ShopOnlineEntities1 db = new ShopOnlineEntities1();
-
         // GET: quantri/product
-        public ActionResult Index()
+      
+        public ActionResult Index(long? id = null)
         {
-            return View(db.products.ToList());
+            getCategory(id);
+            return View();
+            //return View(db.products.ToList());
+        }
+
+        public void getCategory(long? selectedId = null)
+        {
+            ViewBag.category = new SelectList(db.categories.Where(x => x.hide == true).OrderBy(x => x.order), "id", "name", selectedId);
+        }
+
+        public ActionResult getProduct(long? id)
+        {
+            if(id == null)
+            {
+                var v = db.products.OrderBy(x => x.order).ToList();
+                return PartialView(v);
+            }
+            var m = db.products.Where(x => x.categoryid == id).OrderBy(x => x.order).ToList();
+            return PartialView(m);
         }
 
         // GET: quantri/product/Details/5
@@ -40,6 +59,7 @@ namespace Project.Areas.quantri.Controllers
         // GET: quantri/product/Create
         public ActionResult Create()
         {
+            getCategory();
             return View();
         }
 
@@ -51,31 +71,48 @@ namespace Project.Areas.quantri.Controllers
         [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "id,name,price,img,description,meta,size,color,hdie,order,datebegin,categoryid")] product product,HttpPostedFileBase img)
         {
-            ViewBag.GenreId = new SelectList(db.categories, "id", "name");
-            var path = "";
-            var filename = "";
-            if (ModelState.IsValid)
+            try
             {
-                if (img != null)
+                var path = "";
+                var filename = "";
+                if (ModelState.IsValid)
                 {
-                    filename = img.FileName;
-                    path = Path.Combine(Server.MapPath("~/Content/upload/img/product"), filename);
-                    img.SaveAs(path);
-                    product.img = filename;
+                    if (img != null)
+                    {
+                        filename = img.FileName;
+                        path = Path.Combine(Server.MapPath("~/Content/upload/img/product"), filename);
+                        img.SaveAs(path);
+                        product.img = filename;
+                    }
+                    else
+                    {
+                        product.img = "logo.png";
+                    }
+                    product.datebegin = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                    product.meta = Functions.ConvertToUnSign(product.meta);
+                    product.order = getMaxOrder(product.categoryid);
+                    db.products.Add(product);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "product", new { id = product.categoryid });
                 }
-                else
-                {
-                    product.img = "logo.png";
-                }
-                product.datebegin = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                product.meta = Functions.ConvertToUnSign(product.name);
-                db.products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return View(product);
         }
+
+        private int getMaxOrder(int? categoryid)
+        {
+            return db.products.Where(x => x.categoryid == categoryid).Count();
+        }
+
+
 
         // GET: quantri/product/Edit/5
         public ActionResult Edit(int? id)
@@ -89,6 +126,7 @@ namespace Project.Areas.quantri.Controllers
             {
                 return HttpNotFound();
             }
+            getCategory(product.categoryid);
             return View(product);
         }
 
@@ -100,40 +138,42 @@ namespace Project.Areas.quantri.Controllers
         [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "id,name,price,img,description,meta,size,color,hdie,order,datebegin,categoryid")] product product, HttpPostedFileBase img)
         {
-            var path = "";
-            var filename = "";
-            product temp = getById(product.id);
-            if (ModelState.IsValid)
+            try
             {
-                if (img != null)
+                var path = "";
+                var filename = "";
+                product temp = getById(product.id);
+                if (ModelState.IsValid)
                 {
-                    filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + img.FileName;
-                    path = Path.Combine(Server.MapPath("~/Content/upload/img/product"), filename);
-                    img.SaveAs(path);
-                    temp.img = filename;
+                    if (img != null)
+                    {
+                        filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + img.FileName;
+                        path = Path.Combine(Server.MapPath("~/Content/upload/img/product"), filename);
+                        img.SaveAs(path);
+                        temp.img = filename;
+                    }
+                    temp.name = product.name;
+                    temp.price = product.price;
+                    temp.description = product.description;
+                    temp.meta = Functions.ConvertToUnSign(product.meta);
+                    temp.color = product.color;
+                    temp.size = product.size;
+                    temp.hdie = product.hdie;
+                    temp.order = product.order;
+
+                    db.Entry(temp).State = EntityState.Modified;
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "product", new { id = product.categoryid });
                 }
-                temp.name = product.name;
-                temp.description = product.description;
-                temp.meta = Functions.ConvertToUnSign(product.meta);
-                temp.hdie = product.hdie;
-                temp.order = product.order;
-                temp.price = product.price;
-                temp.size = product.size;
-                temp.color = product.color;
-                temp.datebegin = product.datebegin;
-                temp.categoryid = product.categoryid;
-                try
-                {
-                    db.Entry(product).State = EntityState.Modified;
-                }
-                catch(Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-             
-                
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+            catch(Exception ex)
+            {
+                throw ex; 
             }
             return View(product);
         }

@@ -93,14 +93,14 @@
                 
            @foreach (var item in Model)
            {
-               var UrlProduct = "/san-pham/" + item.meta + "-" + item.id;
+               var UrlProduct = "/san-pham/" + item.meta;
                 <div class="top_grid2">
                     <div class="col-md-4 top_grid1-box1 product1">
                         <!--<a href="ProductDetail?productID=item.id">-->
                         <a href="@UrlProduct">
                               <div class="grid_1">
                                   <div class="b-link-stroke b-animate-go thickbox">
-                                      <img src="~/images/@item.img" class="img-responsive" alt="Nghệ Thuật" />
+                                      <img src="~/Content/upload/img/product/@item.img" class="img-responsive" alt="Nghệ Thuật" style="width:260px;height:210px;"/>
                                   </div>
                                   <div class="grid_2">
                                       <p>@item.name</p>

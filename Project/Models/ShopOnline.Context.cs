@@ -29,5 +29,7 @@ namespace Project.Models
         public virtual DbSet<menu> menus { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<product> products { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -20,11 +20,16 @@ namespace Project
             );
             routes.MapRoute(
                 name: "ProductDetail",
-                url: "san-pham/{meta}-{productID}",
-                defaults: new { controller = "Home", action = "ProductDetail", id = UrlParameter.Optional },
+                url: "san-pham/{productID}",
+                defaults: new { controller = "Home", action = "ProductDetail", meta = UrlParameter.Optional },
                 namespaces: new[] { "Project.Controllers" }
             );
-       
+            routes.MapRoute(
+                     name: "NewsDetail",
+                     url: "tin-tuc/{NewsID}",
+                     defaults: new { controller = "Home", action = "NewsDetail", meta = UrlParameter.Optional },
+                     namespaces: new[] { "Project.Controllers" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
