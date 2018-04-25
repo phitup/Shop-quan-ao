@@ -35,5 +35,6 @@ namespace Project.Models
         public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }

@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="ShopOnlineModel.Banner" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="ShopOnlineModel.Contact" Width="1.5" PointX="3.375" PointY="7.75" />
         <EntityTypeShape EntityType="ShopOnlineModel.Feedback" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ShopOnlineModel.Customer" Width="1.5" PointX="7.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

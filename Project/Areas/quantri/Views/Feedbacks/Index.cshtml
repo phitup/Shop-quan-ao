@@ -61,8 +61,15 @@
                         @(item.status.GetValueOrDefault(false) ? "Đã Duyệt" : "Chưa Duyệt")
                     </td>
                     <td>
-                        @Html.ActionLink("Duyệt", "Edit", new { id = item.id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @if (item.status == true)
+                        {
+                            @Html.ActionLink("Huỷ Bỏ", "Edit", new { id = item.id }) ;
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Duyệt", "Edit", new { id = item.id }) ;
+                        }
+                        | @Html.ActionLink("Details", "Details", new { id = item.id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.id })
                     </td>
                 </tr>

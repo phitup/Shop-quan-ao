@@ -68,7 +68,11 @@ namespace Project.Areas.quantri.Controllers
             }
             Feedback feedback = db.Feedbacks.Find(id);
                 db.Entry(feedback).State = EntityState.Modified;
-                feedback.status = true;
+                if(feedback.status == false)
+                    feedback.status = true;
+                else
+                    feedback.status = false;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             

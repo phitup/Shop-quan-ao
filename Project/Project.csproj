@@ -167,6 +167,8 @@
     <Compile Include="Areas\quantri\Models\LoginModel.cs" />
     <Compile Include="Areas\quantri\quantriAreaRegistration.cs" />
     <Compile Include="ClassJs\ContactDao.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\GlobalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -187,9 +189,13 @@
     <Compile Include="Models\Contact.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>ShopOnline.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\Logo.cs">
       <DependentUpon>ShopOnline.tt</DependentUpon>
     </Compile>
@@ -2605,6 +2611,10 @@
     <Content Include="Views\GioiThieu\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Customers\DangKy.cshtml" />
+    <Content Include="Views\Customers\DangNhap.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <None Include="Views\Global\getImage.cshtml" />
     <Content Include="Views\Global\getNews.cshtml" />
     <None Include="Views\Home\404.cshtml" />
