@@ -2612,9 +2612,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Customers\DangKy.cshtml" />
-    <Content Include="Views\Customers\DangNhap.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\Customers\DangNhap.cshtml" />
     <None Include="Views\Global\getImage.cshtml" />
     <Content Include="Views\Global\getNews.cshtml" />
     <None Include="Views\Home\404.cshtml" />

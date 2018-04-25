@@ -14,8 +14,20 @@ namespace Project
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 name: "Category",
-                url: "lua-chon/{meta}-{categoryID}",
+                url: "{meta}-{categoryID}",
                 defaults: new { controller = "Home", action = "Category", id = UrlParameter.Optional },
+                namespaces: new[] { "Project.Controllers" }
+            );
+            routes.MapRoute(
+                name: "DangNhap",
+                url: "DangNhap",
+                defaults: new { controller = "Customers", action = "DangNhap", id = UrlParameter.Optional },
+                namespaces: new[] { "Project.Controllers" }
+            );
+            routes.MapRoute(
+                name: "DangKy",
+                url: "DangKy",
+                defaults: new { controller = "Customers", action = "DangKy", id = UrlParameter.Optional },
                 namespaces: new[] { "Project.Controllers" }
             );
             routes.MapRoute(

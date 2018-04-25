@@ -30,7 +30,7 @@ namespace Project.Controllers
         [HttpGet]
         public ActionResult DangNhap()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public ActionResult DangNhap(FormCollection f)
@@ -47,7 +47,7 @@ namespace Project.Controllers
                 return View();
             }
             ViewBag.ThongBao = "Tên Tài Khoản hoặc mật khẩu không chính xác !";
-            return View();
+            return PartialView();
         }
     }
 }
