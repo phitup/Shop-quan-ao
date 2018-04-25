@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Project.Models.Banner>
+@{
+    ViewBag.Title = "Banner";
+}
+<div class="slider">
+    <div class="callbacks_container">
+        <ul class="rslides" id="slider">
+            @foreach (var item in Model)
+            {
+
+                <li>
+                    <img src="~/images/@item.img" class="img-responsive" alt="" style="width:1600px;height:627px;"/>
+                    <div class="banner_desc">
+                        <h1>@item.name</h1>
+                        <h2>@item.description</h2>
+                    </div>
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>

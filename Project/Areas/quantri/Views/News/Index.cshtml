@@ -44,16 +44,10 @@
                                 @Html.DisplayNameFor(model => model.description)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.detail)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.meta)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.hide)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.order)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.datebegin)
@@ -77,16 +71,10 @@
                                     @Html.DisplayFor(modelItem => item.description)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.detail)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.meta)
                                 </td>
                                 <td>
                                     @(item.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.order)
                                 </td>
                                 <td>
                                     @(item.datebegin.HasValue ? item.datebegin.Value.ToString("dd/MM/yyyy") : "")

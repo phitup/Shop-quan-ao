@@ -11,6 +11,10 @@
         <EntityTypeShape EntityType="ShopOnlineModel.product" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopOnlineModel.sysdiagram" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="ShopOnlineModel.User" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ShopOnlineModel.Logo" Width="1.5" PointX="7.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopOnlineModel.Banner" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ShopOnlineModel.Contact" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ShopOnlineModel.Feedback" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

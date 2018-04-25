@@ -22,9 +22,8 @@ namespace Project
         }
         protected void Session_Start()
         {
-            Session["userid"] = null;
-            Session["username"] = null;
-            Session["password"] = null;
+            Session["id"] = null;
+            Session["user_name"] = null;
         }
     }
 }

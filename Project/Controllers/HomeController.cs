@@ -112,6 +112,15 @@ namespace Project.Controllers
             return View(news);
         }
 
+        public ActionResult Banner()
+        {
+            var v = from t in db.Banners
+                    where t.hide == true
+                    orderby t.id ascending
+                    select t;
+            return PartialView(v.ToList().Take(3));
+        }
+
         public ActionResult Menu()
         {
             
@@ -127,7 +136,12 @@ namespace Project.Controllers
             return PartialView(v.ToList());
         }
 
-
+        public ActionResult Logo()
+        {
+            //var category = _db.Menus.Where(x => x.Id == 3).FirstOrDefault();
+            Logo logo = db.Logoes.SingleOrDefault();
+            return View(logo);
+        }
 
         public ActionResult Wishlist()
         {

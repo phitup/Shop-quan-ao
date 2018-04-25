@@ -12,6 +12,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom Theme files -->
     <link href="~/css/private.css" rel="stylesheet" />
     <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    
     <!-- Custom Theme files -->
     <!--webfont-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -63,9 +64,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header">
         <div class="header_top">
             <div class="container">
-                <div class="logo">
-                    <a href="index.html"><img src="~/images/logo.png" alt="" /></a>
-                </div>
+
+                @{ Html.RenderAction("Logo", "Home");}
+
                 <ul class="shopping_grid">
 
                     <!-- Login -->
@@ -85,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- start h_menu4 -->
             <div class="container">
                 <a class="toggleMenu" href="#">Menu</a>
-                    @{ Html.RenderAction("TopMenu" , "Home");}
+                @{ Html.RenderAction("TopMenu", "Home");}
                 <script type="text/javascript" src="~/js/nav.js"></script>
             </div><!-- end h_menu4 -->
         </div>
@@ -142,12 +143,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <div id="fb-root"></div>
     <script>
-(function (d, s, id) {
+        (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=1542696375839710&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-
+    @RenderSection("_Header", false);
+    @RenderSection("_Footer", false);
 </body></html>

@@ -19,6 +19,12 @@ namespace Project
                 namespaces: new[] { "Project.Controllers" }
             );
             routes.MapRoute(
+                name: "lienhe",
+                url: "lienhe",
+                defaults: new { controller = "LienHe", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "Project.Controllers" }
+            );
+            routes.MapRoute(
                 name: "ProductDetail",
                 url: "san-pham/{productID}",
                 defaults: new { controller = "Home", action = "ProductDetail", meta = UrlParameter.Optional },

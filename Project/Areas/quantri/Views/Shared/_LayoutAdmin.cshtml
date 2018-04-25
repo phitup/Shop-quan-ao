@@ -1,5 +1,5 @@
 ﻿@{ 
-    if(Session["userid"] == null)
+    if(Session["id"] == null)
     {
         Response.Redirect("~/quantri/Home/Login");
     }
@@ -66,7 +66,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="~/quantri/Home/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -96,6 +96,15 @@
                         </li>
                         <li>
                             <a href="@Url.Action("Index" , "News")"><i class="fa fa-dashboard fa-fw"></i> Quản Lý Tin Tức</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index" , "Logoes")"><i class="fa fa-dashboard fa-fw"></i> Quản Lý Logo</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index" , "Banners")"><i class="fa fa-dashboard fa-fw"></i> Quản Lý Banner</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index" , "Feedbacks")"><i class="fa fa-dashboard fa-fw"></i> Quản Lý Feedback</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

@@ -5,26 +5,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section _Header
+{
+    <script src="~/Scripts/js/controller/contactController.js"></script>
+}
+
 <div class="about">
     <div class="container">
         <div class="singel_right">
             <div class="col-md-8">
+                <h2 style="margin-top:-50px;">Công Ty TNHH 1 Thành Viên</h2>
+                <h3>Bán Quần Áo</h3>
                 <div class="contact-form">
-                    <form method="post" action="contact-post.html">
+                    <!-- Form Send Contact 
+                    <form>
                         <p class="comment-form-author">
                             <label for="author">Your Name:</label>
-                            <input type="text" class="textbox" value="Enter your name here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your name here...';}">
+                            <input type="text" id="txtName" class="form-control" />
                         </p>
                         <p class="comment-form-author">
                             <label for="author">Email:</label>
-                            <input type="text" class="textbox" value="Enter your email here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                            <input type="text" id="txtEmail" class="form-control" />
                         </p>
                         <p class="comment-form-author">
                             <label for="author">Message:</label>
-                            <textarea value="Enter your message here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Enter your message here...</textarea>
+                            <textarea id="txtContent" class="form-control" placeholder="Enter your message here..."></textarea>
+                        </p>-->
+                        <p class="comment-form-author">
+                            <label for="author">Your Name:</label>
+                            <input type="text" class="textbox" id="txtName" value="Enter your name here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your name here...';}">
                         </p>
-                        <input name="submit" type="submit" id="submit" value="Submit">
+                        <p class="comment-form-author">
+                            <label for="author">Email:</label>
+                            <input type="text" class="textbox" id="txtEmail" value="Enter your email here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                        </p>
+                        <p class="comment-form-author">
+                            <label for="author">Message:</label>
+                            <textarea value="Enter your message here..." id="txtContent" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Enter your message here...</textarea>
+                        </p>
+                        <input name="submit" type="submit" id="btnSend" value="Gửi">
                     </form>
+                    <!-- End Form Contact -->
                 </div>
             </div>
             <div class="col-md-4 contact_right">
