@@ -6,11 +6,11 @@
 
 @foreach (var menu in Model)
 {
-    var Url = menu.meta;
+    
     <ul class="nav" style="display:inline-block;">
 
         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")" style="display:inline-block;">
-            <a href="@Url">
+            <a href="/@menu.meta">
                 @menu.name
             </a>
         </li>

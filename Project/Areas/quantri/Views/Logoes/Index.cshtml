@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Project.Models.Logo>
+﻿@using Project.Help
+@model IEnumerable<Project.Models.Logo>
 
 @{
     ViewBag.Title = "Index";
@@ -21,7 +22,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default" style="border:1px solid deeppink;">
             <div class="panel-heading" style="background-color:deeppink;">
-                Danh sách News
+                Danh sách Logo
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -44,25 +45,25 @@
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-    {
+                        {
 
-                    <tr>
-                        <td> @Html.Raw(rowNo++)</td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.name)
-                        </td>
-                        <td style="width:100px;">
-                            <img src="~/Content/upload/img/product/@item.img" style="width:100% ; height:auto" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.description)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.id }) 
-                        </td>
-                    </tr>
-}
+                            <tr>
+                                <td> @Html.Raw(rowNo++)</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td style="width:100px;">
+                                    <img src="~/Content/upload/img/news/@item.img" style="width:100% ; height:auto" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Edit", "Edit", "Logoes", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-zoom-in'></span>", "Detail", "Details", "Logoes", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                </td>
+                            </tr>
+                        }
                     </tbody>
 
                 </table>

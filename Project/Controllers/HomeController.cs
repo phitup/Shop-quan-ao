@@ -99,11 +99,19 @@ namespace Project.Controllers
         }
 
 
-        public ActionResult ProductDetail(string productID)
-        {
+       // public ActionResult ProductDetail(string productID)
+        //{
             //var category = _db.Menus.Where(x => x.Id == 3).FirstOrDefault();
-            product product = db.products.Where(x => x.meta == productID).SingleOrDefault();
-            return View(product);
+          //  product product = db.products.Where(x => x.meta == productID).SingleOrDefault();
+            //return View(product);
+        //}
+
+        public ActionResult Detail(string productID)
+        {
+            var v = from t in db.products
+                    where t.meta == productID
+                    select t;
+            return View(v.FirstOrDefault());
         }
 
         public ActionResult NewsDetail(string NewsID)

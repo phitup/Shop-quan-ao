@@ -39,7 +39,7 @@ namespace Project
             routes.MapRoute(
                 name: "ProductDetail",
                 url: "san-pham/{productID}",
-                defaults: new { controller = "Home", action = "ProductDetail", meta = UrlParameter.Optional },
+                defaults: new { controller = "Home", action = "Detail", meta = UrlParameter.Optional },
                 namespaces: new[] { "Project.Controllers" }
             );
             routes.MapRoute(

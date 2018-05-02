@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
-
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Project.Help
 {
-    public class Functions
+    public static class Functions
     {
         public static string ConvertToUnSign(string text)
         {
@@ -33,6 +34,23 @@ namespace Project.Help
             Regex regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
             string strFormD = text.Normalize(System.Text.NormalizationForm.FormD);
             return regex.Replace(strFormD, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+
+        public static MvcHtmlString NoEncodeActionLink(this HtmlHelper htmlHelper,
+                                             string text, string title, string action,
+                                             string controller,
+                                             object routeValues = null,
+                                             object htmlAttributes = null)
+        {
+            UrlHelper urlHelper = new UrlHelper(htmlHelper.ViewContext.RequestContext);
+
+            TagBuilder builder = new TagBuilder("a");
+            builder.InnerHtml = text;
+            builder.Attributes["title"] = title;
+            builder.Attributes["href"] = urlHelper.Action(action, controller, routeValues);
+            builder.MergeAttributes(new RouteValueDictionary(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes)));
+
+            return MvcHtmlString.Create(builder.ToString());
         }
     }
 }
